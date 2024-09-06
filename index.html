@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roasting Ridham</title>
+    <style>
+        /* Google Font for Heading */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #8041ff, #ff4b2b);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Main Container for Centering Content */
+        .container {
+            position: relative;
+            text-align: center;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        /* Cool Heading */
+        h1 {
+            font-size: 60px;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+            background-clip: border-box;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: colorShift 2s ease infinite;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: 3px;
+        }
+
+        @keyframes colorShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Roast Message Styling */
+        #roast-message {
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px 20px;
+            border-radius: 25px;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            opacity: 0;
+            animation: fadeInOut 2.5s infinite;
+            letter-spacing: 1px;
+            text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* Torch Flash Effect */
+        .torch {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 100px;
+            background: #333;
+            border-radius: 15px 15px 5px 5px;
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.7), 0 0 40px rgba(255, 255, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .torch::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 70px;
+            background: radial-gradient(circle, rgba(255, 255, 0, 1) 0%, rgba(255, 255, 0, 0) 70%);
+            animation: flash 1.5s infinite ease-in-out;
+        }
+
+        @keyframes flash {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            #roast-message {
+                font-size: 18px;
+            }
+
+            .torch {
+                width: 30px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Cool Heading -->
+    <h1>Roasting Ridham</h1>
+
+    <!-- Roast Message -->
+    <div id="roast-message">Roasting Ridham...</div>
+
+    <!-- Torch Effect -->
+    <div class="torch"></div>
+</div>
+
+<script>
+    const roastMessageDiv = document.getElementById('roast-message');
+
+    const roastMessages = [
+        "Ridham’s code crashes harder than a public restroom during a wedding.",
+        "Ridham thinks he’s a tech guru, but even a government clerk’s file moves faster.",
+        "Ridham’s coding skills are like the traffic in Delhi—always stuck in one place.",
+        "Even the local train to Bihar moves faster than Ridham’s logic.",
+        "Ridham's code is like a Bollywood plot—full of drama, but no one really gets it.",
+        "If Ridham tried coding on 'KBC,' even Big B would say, 'Skip this coding question!'",
+        "Ridham’s debugging strategy is like Indian cricket fielding—more errors than fixes.",
+        "Ridham’s code is like a Bollywood movie climax—confusing and full of unnecessary twists.",
+        "Ridham codes with the same level of confidence as someone shouting ‘Tea, anyone!’ in a crowded train.",
+        "Even the superhero Shaktimaan would give up fixing the bugs in Ridham’s code."
+    ];
+
+    function displayRoastMessage() {
+        const randomIndex = Math.floor(Math.random() * roastMessages.length);
+        roastMessageDiv.textContent = roastMessages[randomIndex];
+    }
+
+    setInterval(displayRoastMessage, 2000);
+</script>
+
+</body>
+</html>
